@@ -1,0 +1,7 @@
+dependencies:
+- host: github.com
+  owner: mdcme
+  repo: aspapp-demo
+  url: https://github.com/mdcme/aspapp-demo.git
+  version: ""
+  versionURL: ""
