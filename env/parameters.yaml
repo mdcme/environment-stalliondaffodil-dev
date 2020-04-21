@@ -1,0 +1,10 @@
+adminUser:
+  password: vault:stalliondaffodil/adminUser:password
+  username: admin
+enableDocker: false
+pipelineUser:
+  email: michael.dillon@cmegroup.com
+  token: vault:stalliondaffodil/pipelineUser:token
+  username: mdcme
+prow:
+  hmacToken: vault:stalliondaffodil/prow:hmacToken

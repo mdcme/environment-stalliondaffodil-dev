@@ -1,35 +1,82 @@
+autoUpdate:
+  enabled: false
+  schedule: ""
+bootConfigURL: https://github.com/mdcme/jenkins-x-boot-config
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  environmentGitPublic: false
-  project: ""
+  clusterName: stalliondaffodil
+  devEnvApprovers:
+  - mdcme
+  environmentGitOwner: mdcme
+  environmentGitPublic: true
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  project: airy-dialect-274910
   provider: gke
-  zone: ""
-gitops: true
+  registry: gcr.io
+  zone: europe-west6-c
 environments:
-- key: dev
-- key: staging
-- key: production
+- ingress:
+    domain: 34.65.155.74.nip.io
+    externalDNS: false
+    namespaceSubDomain: -jx.
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: dev
+  repository: environment-stalliondaffodil-dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+  repository: environment-stalliondaffodil-staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
+  repository: environment-stalliondaffodil-production
+gitops: true
 ingress:
-  domain: ""
+  domain: 34.65.155.74.nip.io
   externalDNS: false
+  namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
     production: false
 kaniko: true
-secretStorage: local
+repository: nexus
+secretStorage: vault
 storage:
+  backup:
+    enabled: false
+    url: ""
   logs:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://stalliondaffodil-logs-beefd0b6-e626-4277-b758-22e003ae8
   reports:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://stalliondaffodil-reports-7948fcae-3a7d-4c07-814b-2a2ae5
   repository:
     enabled: false
     url: ""
+vault: {}
+velero:
+  schedule: ""
+  ttl: ""
 versionStream:
-  ref: "master"
+  ref: v1.0.428
   url: https://github.com/jenkins-x/jenkins-x-versions.git
 webhook: prow
